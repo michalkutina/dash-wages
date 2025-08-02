@@ -10,7 +10,7 @@ df = pd.read_excel('avg_wage_per_country.xlsx')
 
 # Inicializace Dash aplikace
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
-server = app.server  # pro Render
+server = app.server  # důležité pro Render
 
 # Rozvržení aplikace
 app.layout = html.Div(
@@ -47,7 +47,7 @@ app.layout = html.Div(
                             max=df["Year"].max(),
                             step=1,
                             value=df["Year"].min(),
-                            marks={str(year): str(year) for year in df['Year'].unique()],
+                            marks={str(year): str(year) for year in df['Year'].unique()},
                             id='slider-pravy'
                         ),
                         dcc.Loading(dcc.Graph(id='graf-pravy'))
@@ -86,3 +86,4 @@ def update_graph_pravy(input_rok):
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
     app.run_server(debug=False, host="0.0.0.0", port=port)
+
