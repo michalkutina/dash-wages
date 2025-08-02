@@ -85,5 +85,6 @@ def update_graph_pravy(input_rok):
 # Spuštění (pro Render)
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
-    app.run_server(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False, host="0.0.0.0", port=port)
+
 
